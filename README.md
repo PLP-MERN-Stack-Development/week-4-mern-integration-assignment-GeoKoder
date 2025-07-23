@@ -1,79 +1,172 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19971009&assignment_repo_type=AssignmentRepo)
-# MERN Stack Integration Assignment
+# GeoKoder MERN Stack Blog
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+GeoKoder is a full-stack blog application built with the MERN stack (MongoDB, Express, React, Node.js). It allows users to create, edit, categorize, and delete blog posts. The project is split into two main parts: the backend API and the frontend client.
 
-## Assignment Overview
+---
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Setup & Installation](#setup--installation)
+- [Environment Variables](#environment-variables)
+- [Available Scripts](#available-scripts)
+- [API Overview](#api-overview)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
+---
+
+## Features
+
+- Create, edit, and delete blog posts
+- Categorize posts
+- View posts and categories
+- Form validation and error handling
+- Responsive UI
+- RESTful API integration
+- Modular code structure
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, Vite, React Router, Axios, React Hook Form, Yup, CSS Modules, Context API
+- **Backend:** Node.js, Express, MongoDB, Mongoose, dotenv, CORS
+
+---
 
 ## Project Structure
 
 ```
-mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
+PLP MERN Stack/
+├── client/         # Frontend (React + Vite)
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── styles/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── public/
+│   ├── .env
+│   ├── package.json
+│   └── README.md
+├── server/         # Backend (Node.js + Express)
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── server.js
+│   ├── .env
+│   ├── package.json
+│   └── README.md
+└── README.md       # Project overview (this file)
 ```
 
-## Getting Started
+---
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+## Setup & Installation
 
-## Files Included
+### Prerequisites
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
-
-## Requirements
-
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
+- Node.js (v18+ recommended)
 - npm or yarn
-- Git
+- MongoDB (local or cloud)
 
-## Submission
+### 1. Clone the repository
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+```sh
+git clone https://github.com/yourusername/geokoder-blog.git
+cd geokoder-blog
+```
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+### 2. Backend Setup
 
-## Resources
+```sh
+cd server
+npm install
+# Create a .env file with:
+# MONGO_URI=mongodb://localhost:27017/geokoder-blog
+# PORT=5000
+npm start
+```
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+### 3. Frontend Setup
+
+```sh
+cd client
+npm install
+# Create a .env file with:
+# VITE_BASE_URL=http://localhost:5000/api
+npm run dev
+```
+
+### 4. Access the App
+
+- Frontend: [http://localhost:5173](http://localhost:5173)
+- Backend API: [http://localhost:5000/api](http://localhost:5000/api)
+
+---
+
+## Environment Variables
+
+### Backend (`server/.env`)
+```
+MONGO_URI=mongodb://localhost:27017/geokoder-blog
+PORT=5000
+```
+
+### Frontend (`client/.env`)
+```
+VITE_BASE_URL=http://localhost:5000/api
+```
+
+---
+
+## Available Scripts
+
+### Backend
+
+- `npm start` — Start the server
+- `npm run dev` — Start with nodemon (auto-reload)
+
+### Frontend
+
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run preview` — Preview production build
+
+---
+
+## API Overview
+
+### Posts
+
+- `GET /api/posts` — List all posts
+- `GET /api/posts/:id` — Get a post by ID
+- `POST /api/posts` — Create a post
+- `PUT /api/posts/:id` — Update a post
+- `DELETE /api/posts/:id` — Delete a post
+
+### Categories
+
+- `GET /api/categories` — List all categories
+- `POST /api/categories` — Create a category
+- `PUT /api/categories/:id` — Update a category
+- `DELETE /api/categories/:id` — Delete a category
+
+---
+
+## Troubleshooting
+
+- **MongoDB Connection Issues:** Ensure MongoDB is running and `MONGO_URI` is correct.
+- **CORS Errors:** Confirm CORS is enabled in the backend.
+- **Port Conflicts:** Change `PORT` or frontend dev port if needed.
+- **JSX Errors:** Ensure React component files use `.jsx` extension.
+
+---
+
+## License
+
+This project is licensed under the MIT

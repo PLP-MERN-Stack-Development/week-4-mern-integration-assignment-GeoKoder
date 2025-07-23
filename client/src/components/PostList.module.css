@@ -1,0 +1,46 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #3f51b5;
+  padding-bottom: 0.5rem;
+}
+
+.postList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.postItem {
+  background: #f7f9fc;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.postItem:hover {
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+}
+
+.postTitle {
+  font-size: 1.5rem;
+  color: #3f51b5;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.postExcerpt {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.4;
+}
